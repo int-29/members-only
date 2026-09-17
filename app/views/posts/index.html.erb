@@ -1,2 +1,23 @@
 <h1>All Posts!</h1>
+
+<% if @posts.empty? %>
+<p>There are no posts currently</p>
+<%end%>
+<%@posts.each do |post|%>
+<ul>
+    <li><%=post.title%></li>
+    <%=post.body%> <br>
+    <% if current_user %>
+        Author: <%=post.user.email%>
+    <%end%>
+</ul>
+
+<%end%>
 <%= link_to "Create new post", new_post_path%>
+
+
+<% if current_user %>
+    <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
+    <%else%>
+    <%= button_to "Sign in", new_user_session_path %>
+<%end%>
