@@ -66,4 +66,4 @@ group :test do
 end
 
 gem "devise", "~> 5.0"
-gem "json", "~> 2.21"
+gem "json", "~> 3.0"
